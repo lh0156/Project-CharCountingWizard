@@ -1,9 +1,9 @@
-package co.kr.charcountingwizard.strategy;
+package co.kr.charcountingwizard.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SpecialCharactersCountStrategy implements CharacterCountStrategy {
+public class SpecialCharactersCountCalculator implements CharacterCountCalculator {
 
     @Override
     public int countCharacters(String input) {

@@ -1,9 +1,9 @@
-package co.kr.charcountingwizard.strategy;
+package co.kr.charcountingwizard.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class EnglishCharactersCountStrategy implements CharacterCountStrategy {
+public class EnglishCharactersCountCalculator implements CharacterCountCalculator {
     @Override
     public int countCharacters(String input) {
         Pattern pattern = Pattern.compile("[a-zA-Z]");

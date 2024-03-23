@@ -1,4 +1,4 @@
-package co.kr.charcountingwizard.util;
+package co.kr.charcountingwizard.config;
 
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Bucket4j;

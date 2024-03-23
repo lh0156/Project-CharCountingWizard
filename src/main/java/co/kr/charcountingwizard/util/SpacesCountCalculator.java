@@ -1,6 +1,6 @@
-package co.kr.charcountingwizard.strategy;
+package co.kr.charcountingwizard.util;
 
-public class SpacesCountStrategy implements CharacterCountStrategy {
+public class SpacesCountCalculator implements CharacterCountCalculator {
     @Override
     public int countCharacters(String input) {
         int count = 0;

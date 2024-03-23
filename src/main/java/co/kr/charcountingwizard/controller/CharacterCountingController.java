@@ -1,7 +1,7 @@
 package co.kr.charcountingwizard.controller;
 
 import co.kr.charcountingwizard.service.CharacterCountingService;
-import co.kr.charcountingwizard.util.RateLimiterConfig;
+import co.kr.charcountingwizard.config.RateLimiterConfig;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Controller;
