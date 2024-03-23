@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Counting Wizard</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    textarea, select, button, .result-container {
+      color: black; /* 폰트 색상을 검정색으로 지정 */
+    }
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      width: 50%;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: vertical;
+      background: white;
+    }
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f2f2f2;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+    button:hover {
+      background-color: #45a049;
+      color: black;
+    }
+    .result-container {
+      width: 40%;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="form-container">
+    <form action="/" method="post">
+      <textarea id="text" name="text" rows="10" cols="30" th:text="${text}"></textarea>
+      <select name="option">
+        <option value="all" th:selected="${option == 'all'}">모든 글자</option>
+        <option value="korean" th:selected="${option == 'korean'}">한글</option>
+        <option value="english" th:selected="${option == 'english'}">영어</option>
+        <option value="special" th:selected="${option == 'special'}">특수문자</option>
+        <option value="spaces" th:selected="${option == 'spaces'}">공백</option>
+      </select>
+      <button type="submit">Count</button>
+    </form>
+  </div>
+  <div class="result-container" th:text="${count}"></div>
+</div>
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  let error = [[${error}]];
+  if (error) {
+    alert(error);
+  }
+  /*]]>*/
+</script>
+</body>
+</html>
