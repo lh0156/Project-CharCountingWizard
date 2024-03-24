@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>글자 수 계산기</title>
+  <title>텍스트 분석</title>
   <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5289749398594389"
-          crossorigin="anonymous"></script>
-  <meta name="google-site-verification" content="DpmWxastZvZxH4VRQEQDRvoCVPEiHkp5aJTTv2U_lLI" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -58,7 +55,7 @@
       color: black;
     }
     .result-container {
-      width: 40%;
+      width: 45%;
       padding: 20px;
       background-color: #ffffff;
       border-radius: 5px;
@@ -71,27 +68,15 @@
 <div th:replace="fragments/header :: headerFragment"></div>
 <div class="container">
   <div class="form-container">
-    <form action="/" method="post">
+    <form action="/statistics" method="post">
       <textarea id="text" name="text" rows="10" cols="30" th:text="${text}"></textarea>
-      <select name="option">
-        <option value="all" th:selected="${option == 'all'}">모든 글자</option>
-        <option value="korean" th:selected="${option == 'korean'}">한글</option>
-        <option value="english" th:selected="${option == 'english'}">영어</option>
-        <option value="special" th:selected="${option == 'special'}">특수문자</option>
-        <option value="spaces" th:selected="${option == 'spaces'}">공백</option>
-      </select>
-      <button type="submit">Count</button>
+      <button type="submit">분석하기</button>
     </form>
   </div>
-  <div class="result-container" th:text="${count}"></div>
+  <div class="result-container">
+    <h4>분석 결과:</h4>
+    <pre th:text="${analysisResult}"></pre>
+  </div>
 </div>
-<script th:inline="javascript">
-  /*<![CDATA[*/
-  let error = [[${error}]];
-  if (error) {
-    alert(error);
-  }
-  /*]]>*/
-</script>
 </body>
 </html>

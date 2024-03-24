@@ -28,6 +28,8 @@ dependencies {
 	// Bucket4j
 	implementation 'com.github.vladimir-bukhtoyarov:bucket4j-core:7.0.0'
 
+	// Apache OpenNLP
+	implementation 'org.apache.opennlp:opennlp-tools:1.9.3'
 }
 
 tasks.named('test') {
