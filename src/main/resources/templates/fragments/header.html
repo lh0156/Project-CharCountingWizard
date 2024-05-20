@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Navigation Fragment</title>
-</head>
-<body>
-<header th:fragment="headerFragment">
   <style>
     .apple-nav {
       background: #313131;
@@ -34,14 +31,34 @@
       background-color: #484848;
       border-radius: 10px;
     }
+    .apple-nav .selected {
+      background-color: yellow;
+      color: black;
+      border-radius: 10px;
+    }
   </style>
+</head>
+<body>
+<header th:fragment="headerFragment">
   <nav class="apple-nav">
     <ul>
-      <li><a th:href="@{/}">글자 수 세기</a></li>
-      <li><a th:href="@{/count-lines}">행 갯수 세기</a></li>
-      <li><a th:href="@{/statistics}">텍스트 통계 및 분석</a></li>
+      <li><a th:href="@{/}" id="nav-home">글자 수 세기</a></li>
+      <li><a th:href="@{/count-lines}" id="nav-lines">행 갯수 세기</a></li>
+      <li><a th:href="@{/statistics}" id="nav-stats">텍스트 통계 및 분석</a></li>
     </ul>
   </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var path = window.location.pathname;
+      if (path === '/') {
+        document.getElementById('nav-home').classList.add('selected');
+      } else if (path === '/count-lines') {
+        document.getElementById('nav-lines').classList.add('selected');
+      } else if (path === '/statistics') {
+        document.getElementById('nav-stats').classList.add('selected');
+      }
+    });
+  </script>
 </header>
 </body>
 </html>
