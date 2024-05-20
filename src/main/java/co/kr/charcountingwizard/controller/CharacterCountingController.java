@@ -1,5 +1,6 @@
 package co.kr.charcountingwizard.controller;
 
+import co.kr.charcountingwizard.config.RateLimiterConfig;
 import co.kr.charcountingwizard.service.CharacterCountingService;
 import lombok.RequiredArgsConstructor;
 

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
+import co.kr.charcountingwizard.config.RateLimiterConfig;
 import co.kr.charcountingwizard.service.StatisticsService;
 import lombok.RequiredArgsConstructor;
 
