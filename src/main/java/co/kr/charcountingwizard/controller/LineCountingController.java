@@ -1,5 +1,7 @@
 package co.kr.charcountingwizard.controller;
 
+import static co.kr.charcountingwizard.config.RateLimiterConfig.*;
+
 import co.kr.charcountingwizard.config.RateLimiterConfig;
 import co.kr.charcountingwizard.service.LineCountingService;
 import lombok.RequiredArgsConstructor;
@@ -15,30 +17,24 @@ public class LineCountingController {
 
     private final LineCountingService lineCountingService;
 
-    @GetMapping("/count-lines")
+    @GetMapping("/countlines")
     public String showLineCountForm(Model model) {
-        // 요청 속도 제한을 확인
-        if (!RateLimiterConfig.tryConsume()) {
-            // 요청 속도가 제한을 초과한 경우 Alert 발생
+        if (!tryConsume()) {
             model.addAttribute("error", "Too many requests. Please try again later.");
-            return "count-lines";
+            return "countlines";
         }
-
-        return "count-lines";
+        return "countlines";
     }
 
-    @PostMapping("/count-lines")
+    @PostMapping("/countlines")
     public String countLines(@RequestParam("text") String text, Model model) {
-        // 요청 속도 제한을 확인
-        if (!RateLimiterConfig.tryConsume()) {
-            // 요청 속도가 제한을 초과한 경우 Alert 발생
+        if (!tryConsume()) {
             model.addAttribute("error", "Too many requests. Please try again later.");
-            return "count-lines";
+            return "countlines";
         }
-
         int lineCount = lineCountingService.countLines(text);
         model.addAttribute("text", text);
         model.addAttribute("lineCount", lineCount);
-        return "count-lines";
+        return "countlines";
     }
 }

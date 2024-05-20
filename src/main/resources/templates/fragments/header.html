@@ -43,7 +43,7 @@
   <nav class="apple-nav">
     <ul>
       <li><a th:href="@{/}" id="nav-home">글자 수 세기</a></li>
-      <li><a th:href="@{/count-lines}" id="nav-lines">행 갯수 세기</a></li>
+      <li><a th:href="@{/countlines}" id="nav-lines">행 갯수 세기</a></li>
       <li><a th:href="@{/statistics}" id="nav-stats">텍스트 통계 및 분석</a></li>
     </ul>
   </nav>
@@ -52,7 +52,7 @@
       var path = window.location.pathname;
       if (path === '/') {
         document.getElementById('nav-home').classList.add('selected');
-      } else if (path === '/count-lines') {
+      } else if (path === '/countlines') {
         document.getElementById('nav-lines').classList.add('selected');
       } else if (path === '/statistics') {
         document.getElementById('nav-stats').classList.add('selected');
