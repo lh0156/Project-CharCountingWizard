@@ -30,10 +30,6 @@ dependencies {
 
 	// Apache OpenNLP
 	implementation 'org.apache.opennlp:opennlp-tools:1.9.3'
-
-	// AspectJ
-	implementation 'org.springframework.boot:spring-boot-starter-aop'
-	implementation 'org.aspectj:aspectjweaver'
 }
 
 tasks.named('test') {

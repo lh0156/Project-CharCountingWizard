@@ -16,8 +16,9 @@ public class RateLimiterConfig {
     }
 
     private static Bucket createBucket() {
-        // 초당 10건 방지
-        Bandwidth limit = Bandwidth.classic(1, Refill.greedy(1, Duration.ofSeconds(1)));
+        // 초당 10건 허용
+        Bandwidth limit = Bandwidth.classic(10, Refill.greedy(10, Duration.ofSeconds(1)));
+
         return Bucket4j.builder()
                        .addLimit(limit)
                        .build();
